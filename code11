@@ -1,0 +1,46 @@
+// C++ implementation to Rearrange array 
+// such that difference of adjacent 
+// elements is in descending order 
+  
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+// Function to print array in given order 
+void printArray(int* a, int n) 
+{ 
+    // Sort the array 
+    sort(a, a + n); 
+    int i = 0; 
+    int j = n - 1; 
+  
+    // Check elements till the middle index 
+    while (i <= j) { 
+        // check if length is odd 
+        // print the middle index at last 
+        if (i == j) { 
+            cout << a[i] << " "; 
+        } 
+        // Print the remaining elements 
+        // in the described order 
+        else { 
+            cout << a[j] << " "; 
+            cout << a[i] << " "; 
+        } 
+        i = i + 1; 
+        j = j - 1; 
+    } 
+    cout << endl; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+  
+    // array declaration 
+    int arr1[] = { 1, 2, 3, 4, 5, 6 }; 
+  
+    // size of array 
+    int n1 = sizeof(arr1) / sizeof(arr1[0]); 
+  
+    printArray(arr1, n1); 
+} 
