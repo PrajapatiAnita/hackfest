@@ -1,0 +1,62 @@
+// C++ implementation of the approach 
+#include <bits/stdc++.h> 
+using namespace std; 
+  
+// Structure to store the information of 
+// students 
+struct Student { 
+    string name; 
+    int marks = 0; 
+    int prev_rank = 0; 
+}; 
+  
+// Function to print the name of student who  
+// stood first after updation in rank 
+void nameRank(string names[], int marks[],  
+                      int updates[], int n) 
+{ 
+    // Array of students 
+    Student x[n]; 
+  
+    for (int i = 0; i < n; i++) { 
+  
+        // Store the name of the student 
+        x[i].name = names[i]; 
+  
+        // Update the marks of the student 
+        x[i].marks = marks[i] + updates[i]; 
+  
+        // Store the current rank of the student 
+        x[i].prev_rank = i + 1; 
+    } 
+  
+    Student highest = x[0]; 
+    for (int j = 1; j < n; j++) { 
+        if (x[j].marks >= highest.marks) 
+            highest = x[j]; 
+    } 
+  
+    // Print the name and jump in rank 
+    cout << "Name: " << highest.name 
+         << ", Jump: " 
+         << abs(highest.prev_rank - 1)  
+         << endl; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    // Names of the students 
+    string names[] = { "sam", "ram", "geek" }; 
+  
+    // Marks of the students 
+    int marks[] = { 80, 79, 75 }; 
+  
+    // Updates that are to be done 
+    int updates[] = { 0, 5, -9 }; 
+  
+    // Number of students 
+    int n = sizeof(marks) / sizeof(marks[0]); 
+  
+    nameRank(names, marks, updates, n); 
+} 
