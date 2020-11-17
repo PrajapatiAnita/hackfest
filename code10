@@ -1,0 +1,50 @@
+// C++ program to rank of all elements  
+// in a Stream in descending order  
+// when they arrive  
+#include <iostream> 
+using namespace std; 
+      
+    // FindRank function to find rank  
+        void FindRank(int arr[], int length)  
+    {  
+        // Rank of first element is always 1  
+        cout << "1" <<  " ";  
+          
+        // Iterate over array  
+        for (int i = 1; i < length; i++)  
+        {  
+            // As element let say its rank is 1  
+            int rank = 1;  
+      
+            // Element is compared  
+            // with previous elements  
+            for (int j = 0; j < i; j++)  
+            {  
+                // If greater than previous  
+                // than rank is incremented  
+                if(arr[j] > arr[i])  
+                    rank++;  
+                  
+            }  
+              
+            // print rank  
+            cout <<  rank  << " ";  
+        }  
+    }  
+  
+  
+  
+  
+// Driver code  
+int main() { 
+      
+        // array named arr  
+        int arr[] = {88, 14, 69, 30, 29, 89};  
+      
+        // length of arr  
+        int len = sizeof(arr)/sizeof(arr[0]);  
+      
+        FindRank(arr, len);  
+          
+    return 0; 
+} 
